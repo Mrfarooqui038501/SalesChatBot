@@ -1,22 +1,22 @@
 import axios from 'axios';
 
-// Create axios instance with proper configuration
+
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Fixed port to match your server
+  baseURL: 'http://localhost:5000/api', 
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // 10 second timeout
+  timeout: 10000, 
 });
 
-// Request interceptor to add auth token
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    console.log('Making request to:', config.baseURL + config.url); // Debug log
+    console.log('Making request to:', config.baseURL + config.url); 
     return config;
   },
   (error) => {
@@ -25,7 +25,7 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor for error handling
+
 api.interceptors.response.use(
   (response) => {
     return response;
@@ -33,10 +33,10 @@ api.interceptors.response.use(
   (error) => {
     console.error('API Error:', error.response?.data || error.message);
     
-    // Handle token expiration
+    
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
-      // You might want to redirect to login page here
+     
     }
     
     return Promise.reject(error);

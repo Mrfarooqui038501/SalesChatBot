@@ -128,7 +128,7 @@ const getProductById = async (req, res) => {
   }
 };
 
-// Get product categories
+
 const getCategories = async (req, res) => {
   try {
     const categories = await Product.distinct('category');

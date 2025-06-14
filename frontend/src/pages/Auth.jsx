@@ -107,7 +107,7 @@ const Auth = () => {
         
         {/* Connection status */}
         <div className="mt-4 text-xs text-gray-400 text-center">
-          Backend: http://localhost:5000
+         
         </div>
       </div>
     </div>

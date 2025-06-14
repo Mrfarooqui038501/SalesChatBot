@@ -1,9 +1,13 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none; /* Optional: remove the width limit */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
   text-align: center;
 }
+
 
 .logo {
   height: 6em;

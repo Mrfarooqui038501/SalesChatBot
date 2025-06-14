@@ -1,6 +1,6 @@
 const Chat = require('../models/Chat');
 
-// Save a chat message
+
 const saveChat = async (req, res) => {
   try {
     const { message, response } = req.body;
